@@ -1,0 +1,30 @@
+@import 'colors';
+
+.HeadingOne {
+  position: absolute;
+  top: 1354px;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: $light-gray;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  span {
+    width: 211px;
+    border: 2px solid $gold;
+    margin-bottom: 10px;
+  }
+  p {
+    color: $light-gray;
+    width: 352px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: justify;
+  }
+}

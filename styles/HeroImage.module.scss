@@ -1,0 +1,71 @@
+@import 'colors';
+
+.HeroImage {
+  position: absolute;
+  top: 107px;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px;
+
+  .HeroCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    background: #ffffff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    .Image {
+      display: flex;
+      height: 100px;
+    }
+    div {
+      justify-content: center;
+      align-items: center;
+      h2 {
+        margin-bottom: 13px;
+        top: 258px;
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 54px;
+        color: $dark-gray;
+      }
+      p {
+        margin-top: 0;
+        width: 289px;
+        word-spacing: 5px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 25px;
+        color: $mid-gray;
+      }
+    }
+    button {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+      color: $white;
+      width: 130px;
+      height: 45px;
+      left: 142px;
+      top: 831px;
+      background: $gold;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .HeroImage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    left: 94px;
+    top: 189px;
+  }
+}

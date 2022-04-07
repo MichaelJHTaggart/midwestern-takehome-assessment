@@ -1,0 +1,49 @@
+@import 'colors';
+
+.NavBar {
+  .Logo {
+    position: absolute;
+    height: 47px;
+    width: 225px;
+    left: 32px;
+    top: 29px;
+  }
+  .Contact {
+    position: absolute;
+    width: 73px;
+    height: 27px;
+    left: 311px;
+    top: 21px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: $gold;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .NavBar {
+    .Logo {
+      position: absolute;
+      width: 350px;
+      height: 73px;
+      left: 98px;
+      top: 52px;
+    }
+
+    .Contact {
+      position: absolute;
+      width: 73px;
+      height: 27px;
+      left: 1274px;
+      top: 53px;
+      font-size: 18px;
+      line-height: 27px;
+      color: $gold;
+    }
+  }
+}
