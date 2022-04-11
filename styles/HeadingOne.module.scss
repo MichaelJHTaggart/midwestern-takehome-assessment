@@ -5,8 +5,9 @@
   flex-direction: column;
   margin-top: 31px;
   position: relative;
-  left: 25px;
+  left: 23px;
   overflow: hidden;
+  margin-bottom: 15px;
 
   h1 {
     color: $light-gray;
@@ -29,6 +30,7 @@
     text-align: justify;
     width: 352px;
     overflow: hidden;
+    margin-bottom: 64px;
   }
 }
 

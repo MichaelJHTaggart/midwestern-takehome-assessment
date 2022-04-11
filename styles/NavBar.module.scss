@@ -10,6 +10,8 @@
   margin-bottom: 21px;
   overflow: hidden;
   .ImageContainer {
+    position: relative;
+    margin-top: 4px;
     height: 45px;
     width: 225px;
     overflow: hidden;
@@ -24,7 +26,7 @@
     right: 57px;
     overflow: hidden;
     &:hover {
-      cursor: pointer;  
+      cursor: pointer;
       color: #a48c55;
     }
   }

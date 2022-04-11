@@ -38,7 +38,7 @@ export const HeroImage: React.FC = () => {
   return (
     <div className={styles.HeroImage}>
       {data.map((info) => (
-        <div className={styles.HeroCard}>
+        <div key={info.id} className={styles.HeroCard}>
           <div className={styles.Image}>
             <Image
               src={info.image}

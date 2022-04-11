@@ -15,20 +15,32 @@ export const NavBar: React.FC<Props> = ({ setIsContact, isContact }) => {
         <Image
           className={styles.Image}
           src={Logo}
-          layout='responsive'
+          layout="responsive"
           height={45}
           width={225}
           alt="Logo"
         />
       </div>
-      <p
-        className={styles.Contact}
-        onClick={() => {
-          setIsContact(true);
-        }}
-      >
-        contact
-      </p>
+      {!isContact && (
+        <p
+          className={styles.Contact}
+          onClick={() => {
+            setIsContact(true);
+          }}
+        >
+          contact
+        </p>
+      )}
+      {isContact && (
+        <p
+          className={styles.Contact}
+          onClick={() => {
+            setIsContact(false);
+          }}
+        >
+          home
+        </p>
+      )}
     </div>
   );
 };
