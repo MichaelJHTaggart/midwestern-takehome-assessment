@@ -14,10 +14,22 @@ p {
 input {
   color: #858585 color-contrast(#f5f5f5);
 }
-
 a {
+  color: #debf79;
+}
+a:hover {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #a48c55;
+}
+div {
+  overflow: hidden;
+}
+main {
+  display: grid;
+  justify-items: center;
+  overflow: hidden;
 }
 
 * {

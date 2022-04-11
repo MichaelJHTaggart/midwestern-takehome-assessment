@@ -1,49 +1,48 @@
 @import 'colors';
 
 .NavBar {
-  .Logo {
-    position: absolute;
-    height: 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  left: 25px;
+  margin-top: 18px;
+  margin-bottom: 21px;
+  overflow: hidden;
+  .ImageContainer {
+    height: 45px;
     width: 225px;
-    left: 32px;
-    top: 29px;
+    overflow: hidden;
   }
   .Contact {
-    position: absolute;
-    width: 73px;
-    height: 27px;
-    left: 311px;
-    top: 21px;
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 27px;
     color: $gold;
-    &:hover{
-      cursor: pointer;
+    position: relative;
+    right: 57px;
+    overflow: hidden;
+    &:hover {
+      cursor: pointer;  
+      color: #a48c55;
     }
   }
 }
-
 @media screen and (min-width: 1440px) {
   .NavBar {
-    .Logo {
-      position: absolute;
-      width: 350px;
+    position: relative;
+    left: 0px;
+    margin-top: 52px;
+    margin-bottom: 64px;
+    .ImageContainer {
+      position: relative;
+      left: 0px;
       height: 73px;
-      left: 98px;
-      top: 52px;
+      width: 350px;
     }
-
     .Contact {
-      position: absolute;
-      width: 73px;
-      height: 27px;
-      left: 1274px;
-      top: 53px;
-      font-size: 18px;
-      line-height: 27px;
-      color: $gold;
+      right: 0px;
     }
   }
 }

@@ -11,8 +11,15 @@ interface Props {
 export const NavBar: React.FC<Props> = ({ setIsContact, isContact }) => {
   return (
     <div className={styles.NavBar}>
-      <div className={styles.Logo}>
-        <Image src={Logo} height={47} width={225} alt="Logo" />
+      <div className={styles.ImageContainer}>
+        <Image
+          className={styles.Image}
+          src={Logo}
+          layout='responsive'
+          height={45}
+          width={225}
+          alt="Logo"
+        />
       </div>
       <p
         className={styles.Contact}

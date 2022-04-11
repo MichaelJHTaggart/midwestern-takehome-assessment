@@ -1,11 +1,13 @@
 @import 'colors';
 
 .HeadingOne {
-  position: absolute;
-  top: 1354px;
-  left: 32px;
   display: flex;
   flex-direction: column;
+  margin-top: 31px;
+  position: relative;
+  left: 25px;
+  overflow: hidden;
+
   h1 {
     color: $light-gray;
     font-weight: 700;
@@ -21,10 +23,20 @@
   }
   p {
     color: $light-gray;
-    width: 352px;
     font-weight: 500;
     font-size: 16px;
     line-height: 25px;
     text-align: justify;
+    width: 352px;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .HeadingOne {
+    left: 0px;
+    p {
+      width: 1248px;
+    }
   }
 }

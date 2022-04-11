@@ -1,8 +1,6 @@
 @import 'colors';
 
 .HeroImage {
-  position: absolute;
-  top: 107px;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(1, 1fr);
@@ -65,7 +63,5 @@
   .HeroImage {
     grid-template-columns: repeat(3, 1fr);
     gap: 26px;
-    left: 94px;
-    top: 189px;
   }
 }
