@@ -38,7 +38,6 @@ export const ContactForm: React.FC = () => {
 
   return (
     <div className={styles.ContactForm}>
-      <h2 className={styles.headingTwo}>Heading Two</h2>
       <Formik
         initialValues={initialValues}
         onSubmit={(values, actions) => {
@@ -47,22 +46,25 @@ export const ContactForm: React.FC = () => {
           actions.setSubmitting(false);
         }}
       >
-        <Form>
+        <Form className={styles.Form}>
+          <h2 className={styles.headingTwo}>Heading Two</h2>
           <Field
             id="firstName"
+            className={styles.firstName} 
             name="firstName"
             placeholder="First Name"
             autoFocus
           />
 
-          <Field id="lastName" name="lastName" placeholder="Last Name" />
+          <Field id="lastName" className={styles.lastName} name="lastName" placeholder="Last Name" />
 
-          <Field id="title" name="title" placeholder="Title" />
+          <Field id="title" className={styles.title}  name="title" placeholder="Title" />
 
-          <Field id="email" name="email" placeholder="Email" />
+          <Field id="email" className={styles.email} name="email" placeholder="Email" />
 
           <Field
             id="message"
+            className={styles.message} 
             name="message"
             placeholder="Message"
             as="textarea"
