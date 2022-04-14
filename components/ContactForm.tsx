@@ -6,6 +6,7 @@ import {
   Form,
   Field,
   FieldProps,
+  ErrorMessage,
 } from 'formik';
 import styles from '../styles/ContactForm.module.scss';
 import * as yup from 'yup';
@@ -17,15 +18,15 @@ interface MyFormValues {
   message: string;
 }
 
-const personSchema = yup.object({
-  firstName: yup.string().defined(),
-  lastName: yup.string().defined(),
-  title: yup.string().defined(),
-  email: yup.string().nullable().email(),
-  message: yup.string().defined(),
+const SignupSchema = yup.object({
+  firstName: yup.string().required('Required'),
+  lastName: yup.string().required('Required'),
+  title: yup.string().required('Required'),
+  email: yup.string().required('Required'),
+  message: yup.string().required('Required'),
 });
 
-interface MyFormValues extends yup.InferType<typeof personSchema> {}
+interface MyFormValues extends yup.InferType<typeof SignupSchema> {}
 
 export const ContactForm: React.FC = () => {
   const initialValues: MyFormValues = {
@@ -40,39 +41,61 @@ export const ContactForm: React.FC = () => {
     <div className={styles.ContactForm}>
       <Formik
         initialValues={initialValues}
+        validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
           console.log({ values, actions });
           alert(JSON.stringify(values, null, 2));
           actions.setSubmitting(false);
         }}
       >
-        <Form className={styles.Form}>
-          <h2 className={styles.headingTwo}>Heading Two</h2>
-          <Field
-            id="firstName"
-            className={styles.firstName} 
-            name="firstName"
-            placeholder="First Name"
-            autoFocus
-          />
+        {({ errors, touched }) => (
+          <Form className={styles.Form}>
+            <h2 className={styles.headingTwo}>Heading Two</h2>
 
-          <Field id="lastName" className={styles.lastName} name="lastName" placeholder="Last Name" />
+            <Field
+              id="firstName"
+              name="firstName"
+              className={styles.firstName}
+              placeholder="First Name"
+              autoFocus
+            />
 
-          <Field id="title" className={styles.title}  name="title" placeholder="Title" />
+            <Field
+              id="lastName"
+              name="lastName"
+              className={styles.lastName}
+              placeholder="Last Name"
+            />
 
-          <Field id="email" className={styles.email} name="email" placeholder="Email" />
+            <Field
+              id="title"
+              name="title"
+              className={styles.title}
+              placeholder="Title"
+            />
 
-          <Field
-            id="message"
-            className={styles.message} 
-            name="message"
-            placeholder="Message"
-            as="textarea"
-            maxLength="420"
-          />
+            <div
+              className={
+                errors.email && touched.email ? styles.emailRed : styles.email
+              }
+            >
+              <Field id="email" name="email" placeholder="Email" />
+              <div className={errors.email && styles.Error}>
+                <ErrorMessage name="email" />
+              </div>
+            </div>
 
-          <button type="submit">Submit</button>
-        </Form>
+            <Field
+              id="message"
+              name="message"
+              className={styles.message}
+              placeholder="Message"
+              as="textarea"
+              maxLength="420"
+            />
+            <button type="submit">Submit</button>
+          </Form>
+        )}
       </Formik>
     </div>
   );
