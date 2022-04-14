@@ -1,15 +1,12 @@
 import React from 'react';
 import styles from '../styles/HeroImage.module.scss';
 import Image from 'next/image';
-import Talkie from '../public/images/talkie.svg';
-import Rabbit from '../public/images/rabbit.svg';
-import Coin from '../public/images/coin.svg';
 
 export const HeroImage: React.FC = () => {
   let data = [
     {
       id: 1,
-      image: Talkie,
+      image: '/images/talkie.svg',
       height: 106,
       width: 51,
       title: 'Heading Two',
@@ -18,7 +15,7 @@ export const HeroImage: React.FC = () => {
     },
     {
       id: 2,
-      image: Rabbit,
+      image: '/images/rabbit.svg',
       height: 97,
       width: 622,
       title: 'Heading Two',
@@ -27,7 +24,7 @@ export const HeroImage: React.FC = () => {
     },
     {
       id: 3,
-      image: Coin,
+      image: '/images/coin.svg',
       height: 98,
       width: 98,
       title: 'Heading Two',

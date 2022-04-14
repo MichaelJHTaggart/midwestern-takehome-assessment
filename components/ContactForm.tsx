@@ -28,6 +28,19 @@ const SignupSchema = yup.object({
 
 interface MyFormValues extends yup.InferType<typeof SignupSchema> {}
 
+async function saveContact(contact: MyFormValues) {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    body: JSON.stringify(contact),
+  });
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  return await response.json();
+}
+
 export const ContactForm: React.FC = () => {
   const initialValues: MyFormValues = {
     firstName: '',
@@ -42,10 +55,10 @@ export const ContactForm: React.FC = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={SignupSchema}
-        onSubmit={(values, actions) => {
-          console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
+        onSubmit={(values, {resetForm}) => {
+          console.log({ values });
+          saveContact(values);
+          resetForm()
         }}
       >
         {({ errors, touched }) => (

@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Contact{
+  id Int @id @default(autoincrement())
+  firstName String 
+  lastName String
+  title String
+  email String
+  message String @db.VarChar(500)
+}
+
+model Heading{
+  id         Int      @id @default(autoincrement())
+  title      String
+  text       String
+}
+
+model Hero {
+  id         Int      @id @default(autoincrement())
+  image      String   
+  height     Int 
+  width      Int   
+  title      String
+  text       String
+  buttonText String
+}
+

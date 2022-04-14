@@ -7,8 +7,52 @@ import { ContactForm } from '../components/ContactForm';
 import { HeadingOne } from '../components/HeadingOne';
 import styles from '../styles/index.module.scss';
 
+import { PrismaClient, Contact } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export async function getServerSideProps() {
+  const contacts: Contact[] = await prisma.contact.findMany();
+  return (
+    console.log(contacts),
+    {
+      props: {
+        initialContacts: contacts,
+      },
+    }
+  );
+}
+
 const Home: NextPage = () => {
   const [isContact, setIsContact] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [array1] = useState([
+    'Matt Johnson',
+    'Matt Johnson',
+    'Bart Paden',
+    'Ryan Doss',
+    'Jared Malcolm',
+  ]);
+  const [array2] = useState([
+    'Matt Johnson',
+    'Bart Paden',
+    'Bart Paden',
+    'Jordan Heigle',
+    'Jordan Heigle',
+    'Tyler Viles',
+  ]);
+  const [newArray, setNewArray] = useState<string[]>([]);
+
+  const handleClick = () => {
+    !isClicked
+      ? setIsClicked(true)
+      : alert('You have already clicked this button');
+    //combine both arrays into one
+    let array = [...array1, ...array2];
+
+    setNewArray(array.filter((item, index) => array.indexOf(item) === index));
+  };
+
   return (
     <div>
       <Head>
@@ -22,14 +66,65 @@ const Home: NextPage = () => {
           <NavBar setIsContact={setIsContact} isContact={isContact} />
           {!isContact && <HeroImage />}
           {!isContact && (
-            <HeadingOne isContact={isContact}>
-              Remove the duplicates in 2 Javascript arrays (found in readme),
-              add the results to an array and output the list of distinct names
-              in an unordered list below this paragraph when <a>this link</a> is
-              clicked. If the operation has been fcompleted already, notify the
-              user that this has already been done.
-            </HeadingOne>
+            <>
+              <HeadingOne isContact={isContact}>
+                Remove the duplicates in 2 Javascript arrays (found in readme),
+                add the results to an array and output the list of distinct
+                names in an unordered list below this paragraph when{' '}
+                <a onClick={handleClick}>this link</a> is clicked. If the
+                operation has been completed already, notify the user that this
+                has already been done.
+              </HeadingOne>
+              <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                {!isClicked && (
+                  <>
+                    <ul
+                      style={{
+                        color: 'white',
+                        listStyle: 'none',
+                        padding: '0px',
+                      }}
+                    >
+                      {array1.map((name, index) => (
+                        <li style={{ color: 'white' }} key={index}>
+                          {name}
+                        </li>
+                      ))}
+                    </ul>
+                    <ul
+                      style={{
+                        color: 'white',
+                        listStyle: 'none',
+                        padding: '0px',
+                      }}
+                    >
+                      {array2.map((name, index) => (
+                        <li style={{ color: 'white' }} key={index}>
+                          {name}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                {isClicked && (
+                  <ul
+                    style={{
+                      color: 'white',
+                      listStyle: 'none',
+                      padding: '0px',
+                    }}
+                  >
+                    {newArray.map((name, index) => (
+                      <li style={{ color: 'white' }} key={index}>
+                        {name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </>
           )}
+
           {isContact && (
             <div className={styles.Contact}>
               <HeadingOne isContact={isContact}>
