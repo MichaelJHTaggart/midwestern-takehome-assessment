@@ -3,14 +3,15 @@ import styles from '../styles/HeadingOne.module.scss';
 
 interface Props {
   isContact: boolean;
+  title: String;
 }
 
-export const HeadingOne: React.FC<Props> = ({ children, isContact }) => {
+export const HeadingOne: React.FC<Props> = ({ children, isContact, title }) => {
   return (
     <>
       {!isContact && (
         <div className={styles.HeadingOne}>
-          <h1>Heading One</h1>
+          <h1>{title}</h1>
           <span></span>
           <p>{children}</p>
         </div>

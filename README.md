@@ -2,33 +2,53 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Go to this link to view the live version of this application: 
+
+If you want to pull the code locally:
+The .env file will need 2 heroku databases(cloud), OR a database that has permissions for creating a new database.
+
+First, install local dependencies:
+```
+npm install
+```
+
+To seed prisma, run migration, and view your database interaction run these commands in order 
+```bash
+
+npx prisma db seed
+
+npx prisma migrate dev
+
+npx prisma studio
+
+```
+
+Finally, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## First Nextjs project ever
+To start this project I first familiarized myself with the [official Nextjs tutorial](https://nextjs.org/learn/foundations/about-nextjs)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## First Prisma.io project ever
+Implementing Prisma was an absolute joy. Super easy, and was able to follow their docs to do exactly what I wanted to accomplish.
 
-## Learn More
+[Prisma](https://www.prisma.io/docs/getting-started)
 
-To learn more about Next.js, take a look at the following resources:
+### Challenges
+- Completely learn Nextjs
+- Completely learn Prisma
+- Completely learn Formik
+- Relearn CSS grid
+### Throughput
+Day of receiving the project: March 25, 2022
+Day of completion: April 15, 2022
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I worked on the project primarily Mon-Fri between the hours of 8am and 12pm MDT (I estimate roughly 10-15 hours a week). 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I believe the estimated total time on this project took about 20-30 hours of labor.

@@ -7,23 +7,30 @@ import { ContactForm } from '../components/ContactForm';
 import { HeadingOne } from '../components/HeadingOne';
 import styles from '../styles/index.module.scss';
 
-import { PrismaClient, Contact } from '@prisma/client';
+import { PrismaClient, Contact, Heading, Hero } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
   const contacts: Contact[] = await prisma.contact.findMany();
-  return (
-    console.log(contacts),
-    {
+  const heading: Heading[] = await prisma.heading.findMany();
+  const heroImage: Hero[] = await prisma.hero.findMany();
+  return {
       props: {
         initialContacts: contacts,
+        heading: heading,
+        heroImage: heroImage,
       },
     }
-  );
 }
 
-const Home: NextPage = () => {
+
+interface Props {
+  heading: Heading[];
+  heroImage: Hero[];
+}
+
+const Home: React.FC<Props> = ({ heading, heroImage }) => {
   const [isContact, setIsContact] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [array1] = useState([
@@ -64,10 +71,10 @@ const Home: NextPage = () => {
       <main>
         <div className={styles.mainWrapper}>
           <NavBar setIsContact={setIsContact} isContact={isContact} />
-          {!isContact && <HeroImage />}
+          {!isContact && <HeroImage>{heroImage}</HeroImage>}
           {!isContact && (
             <>
-              <HeadingOne isContact={isContact}>
+              <HeadingOne title="Heading One" isContact={isContact}>
                 Remove the duplicates in 2 Javascript arrays (found in readme),
                 add the results to an array and output the list of distinct
                 names in an unordered list below this paragraph when{' '}
@@ -127,14 +134,8 @@ const Home: NextPage = () => {
 
           {isContact && (
             <div className={styles.Contact}>
-              <HeadingOne isContact={isContact}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                dos eiusmod tempor incididunt ut labore et trace dolore magna
-                aliqua.
-                <br />
-                <br />
-                Proin sagittis nisl rhoncus mattis rhoncus. At augue eget arcu
-                dictum varius duis at consectetur lorem.
+              <HeadingOne title={heading[0].title} isContact={isContact}>
+                {heading[0].text}
               </HeadingOne>
               <ContactForm />
             </div>

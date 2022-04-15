@@ -1,40 +1,16 @@
 import React from 'react';
 import styles from '../styles/HeroImage.module.scss';
 import Image from 'next/image';
+import { Hero } from '@prisma/client';
+interface Props {
+  children: Hero[]
+}
 
-export const HeroImage: React.FC = () => {
-  let data = [
-    {
-      id: 1,
-      image: '/images/talkie.svg',
-      height: 106,
-      width: 51,
-      title: 'Heading Two',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
-      buttonText: 'Learn More',
-    },
-    {
-      id: 2,
-      image: '/images/rabbit.svg',
-      height: 97,
-      width: 622,
-      title: 'Heading Two',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
-      buttonText: 'Learn More',
-    },
-    {
-      id: 3,
-      image: '/images/coin.svg',
-      height: 98,
-      width: 98,
-      title: 'Heading Two',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
-      buttonText: 'Learn More',
-    },
-  ];
+export const HeroImage: React.FC<Props> = ({children}) => {
+  
   return (
     <div className={styles.HeroImage}>
-      {data.map((info) => (
+      {children?.map((info) => (
         <div key={info.id} className={styles.HeroCard}>
           <div className={styles.Image}>
             <Image

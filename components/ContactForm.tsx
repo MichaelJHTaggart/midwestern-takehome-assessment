@@ -56,7 +56,6 @@ export const ContactForm: React.FC = () => {
         initialValues={initialValues}
         validationSchema={SignupSchema}
         onSubmit={(values, {resetForm}) => {
-          console.log({ values });
           saveContact(values);
           resetForm()
         }}
