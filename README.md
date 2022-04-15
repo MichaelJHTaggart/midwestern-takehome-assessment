@@ -1,10 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# View live here (https://midwestern-takehome-assessment.vercel.app/)
+
 ## Getting Started
 
 Go to this link to view the live version of this application: 
 
 If you want to pull the code locally:
+Please insert your own .env files.
+Mine are exposed as they prisma is having an issue reading environment variables.
+
 The .env file will need 2 heroku databases(cloud), OR a database that has permissions for creating a new database.
 
 First, install local dependencies:
@@ -45,6 +50,7 @@ Implementing Prisma was an absolute joy. Super easy, and was able to follow thei
 - Completely learn Prisma
 - Completely learn Formik
 - Relearn CSS grid
+
 ### Throughput
 Day of receiving the project: March 25, 2022
 Day of completion: April 15, 2022
