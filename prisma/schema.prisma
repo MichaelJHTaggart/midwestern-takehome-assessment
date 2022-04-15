@@ -1,14 +1,15 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-generator client {
-  provider = "prisma-client-js"
-}
 
 datasource db {
+  url      = "postgres://kdhjawobaudbwl:6f1729944c167cc558685687f10ddbe903288ff9df24be805c776c7ddb7e619b@ec2-18-214-134-226.compute-1.amazonaws.com:5432/d6fp3d18d4bcu"
   provider = "postgresql"
-  url      = env("DATABASE")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  shadowDatabaseUrl = "postgres://migzhnmwckfgcc:adfc2788a74e664f9a7fa15f3c02afa05eab571efe52b206d622932c252c5a2a@ec2-52-21-136-176.compute-1.amazonaws.com:5432/dd5fo5tpmlk7n0"
+}
+
+generator client {
+  provider = "prisma-client-js"
 }
 
 model Contact{
