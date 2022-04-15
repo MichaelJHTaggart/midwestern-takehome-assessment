@@ -1,13 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# View live here (https://midwestern-takehome-assessment.vercel.app/)
+# https://midwestern-takehome-assessment.vercel.app/
+
+## Explanation
+This project follows the challenge for 1 & 3 outlined in the following repository: https://github.com/Midwestern-Interactive/tech-challenge
 
 ## Getting Started
 
-Go to this link to view the live version of this application: 
-
-If you want to pull the code locally:
-Please insert your own .env files.
+If you want to pull the code locally on your machine:
+Please insert your own .env files || database connection strings.
 Mine are exposed as they prisma is having an issue reading environment variables.
 
 The .env file will need 2 heroku databases(cloud), OR a database that has permissions for creating a new database.
